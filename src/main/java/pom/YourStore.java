@@ -22,7 +22,8 @@ public class YourStore {
         commonMethods.doWait(3000);
     }
 
-    public void clickOnLoginLink() {
+    public AccountLogin clickOnLoginLink() {
         commonMethods.doClick(loginLink);
+        return new AccountLogin(driver);
     }
 }
