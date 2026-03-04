@@ -12,10 +12,10 @@ public class login7WithPOM extends Base {
     @Test
     public void login1() throws InterruptedException {
         ys.clickOnMyAccountIcon();
-        ys.clickOnLoginLink();
+        al = ys.clickOnLoginLink();
         al.enterEmail();
         al.enterPassword();
-        al.clickOnLoginButton();
+        ma = al.clickOnLoginButton();
         ma.validateLoginStatus();
     }
 
