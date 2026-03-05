@@ -19,5 +19,35 @@ public class login7WithPOM extends Base {
         ma.validateLoginStatus();
     }
 
+    @Test
+    public void login2() throws InterruptedException {
+        ys.clickOnMyAccountIcon();
+        al = ys.clickOnLoginLink();
+        al.enterEmail();
+        al.enterPassword();
+        ma = al.clickOnLoginButton();
+        ma.validateLoginStatus();
+    }
+
+    @Test
+    public void login3() throws InterruptedException {
+        ys.clickOnMyAccountIcon();
+        al = ys.clickOnLoginLink();
+        al.enterEmail();
+        al.enterPassword();
+        ma = al.clickOnLoginButton();
+        ma.validateLoginStatus();
+    }
+
+    @Test
+    public void login4() throws InterruptedException {
+        ys.clickOnMyAccountIcon();
+        al = ys.clickOnLoginLink();
+        al.enterEmail();
+        al.enterPassword();
+        ma = al.clickOnLoginButton();
+        ma.validateLoginStatus();
+    }
+
 }
 

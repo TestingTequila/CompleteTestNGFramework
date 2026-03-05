@@ -58,6 +58,7 @@ public class login4WithTestNG {
 
 
     }
+
     @Test
     public void login2() throws InterruptedException {
         // 3- Click on My Account icon

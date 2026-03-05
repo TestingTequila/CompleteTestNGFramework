@@ -36,7 +36,7 @@ public class Register2 {
         lastNameTextbox.sendKeys("Babbage");
 
         WebElement emailTextbox = driver.findElement(By.name("email"));
-        emailTextbox.sendKeys("charles.babbage" + Register2.generateNumber()+"@Janbask.com");
+        emailTextbox.sendKeys("charles.babbage" + Register2.generateNumber() + "@Janbask.com");
 
         WebElement telephoneTextbox = driver.findElement(By.id("input-telephone"));
         telephoneTextbox.sendKeys("57547475");

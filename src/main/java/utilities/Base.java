@@ -26,7 +26,7 @@ public class Base {
         cm = new CommonMethods(driver);
         ys = new YourStore(driver);
         al = new AccountLogin(driver);
-        ma= new MyAccount(driver);
+        ma = new MyAccount(driver);
     }
 
 

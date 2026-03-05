@@ -27,8 +27,7 @@ public class AccountLogin {
         cm.doSendKeys(passwordTextBox, FeatureData.PASSWORD);
     }
 
-    public  MyAccount clickOnLoginButton()
-    {
+    public MyAccount clickOnLoginButton() {
         cm.doClick(loginButton);
         return new MyAccount(driver);
     }
