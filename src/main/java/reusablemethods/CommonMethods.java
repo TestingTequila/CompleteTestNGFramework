@@ -4,6 +4,7 @@ import HandlingData.AppLevelData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class CommonMethods {
     WebDriver driver;
@@ -27,10 +28,6 @@ public class CommonMethods {
     }
 
     public void doTitleValidation(String EXPECTED_PAGE_TITLE) {
-        if (driver.getTitle().equalsIgnoreCase(EXPECTED_PAGE_TITLE)) {
-            System.out.println(AppLevelData.SUCCESS_MSG);
-        } else {
-            System.out.println(AppLevelData.FAILURE_MSG);
-        }
+        Assert.assertEquals(driver.getTitle(), EXPECTED_PAGE_TITLE);
     }
 }

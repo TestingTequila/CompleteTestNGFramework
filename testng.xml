@@ -2,13 +2,23 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="C:/Users/91886/IdeaProjects/MySeleniumProject">
+        <parameter name="url" value="https://www.janbasktraining.com/"/>
         <classes>
-            <class name="login7WithPOM">
+<!--            <class name="login7WithPOM">-->
+<!--                <methods>-->
+<!--                    <include name="login1"/>-->
+<!--                    <include name="login2"/>-->
+<!--                    <include name="login3"/>-->
+<!--                    <include name="login4"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+
+            <class name="testngconcepts.TestNGConcepts">
                 <methods>
+                    <include name="login"/>
                     <include name="login1"/>
-                    <include name="login2"/>
-                    <include name="login3"/>
-                    <include name="login4"/>
+                    <include name="registration"/>
+                    <include name="payment"/>
                 </methods>
             </class>
         </classes>
