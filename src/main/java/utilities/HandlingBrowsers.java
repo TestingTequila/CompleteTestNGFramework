@@ -11,9 +11,12 @@ public class HandlingBrowsers {
 
     public static WebDriver launchBrowser(String browserName) {
 
-        if (browserName.equalsIgnoreCase("Chrome")) {
+        if (browserName.equalsIgnoreCase("Chrome"))
+        {
             driver = new ChromeDriver();
-        } else if (browserName.equalsIgnoreCase("Firefox")) {
+        }
+        else if (browserName.equalsIgnoreCase("Firefox"))
+        {
             driver = new FirefoxDriver();
         } else if (browserName.equalsIgnoreCase("Edge")) {
             driver = new EdgeDriver();

@@ -2,47 +2,61 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import java.time.Duration;
 
 public class Login1 {
-    public static void main(String[] args) throws InterruptedException {
-        // 1- Open the browser
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().maximize();
+    @Test
+    public void testLogin() throws InterruptedException {
+        WebDriver driver = null;
+        try {
+            // 1- Open the browser
+            driver = new ChromeDriver();
+            driver.manage().window().maximize();
 
-        // 2- Enter the url
-        driver.get("https://janbaskdemo.com/");
+            // Initialize WebDriverWait
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        // 3- Click on My Account icon
-        WebElement myAccountIcon = driver.findElement(By.xpath("//i[@class='fa fa-user']"));
-        myAccountIcon.click();
-        Thread.sleep(3000);
+            // 2- Enter the url
+            driver.get("https://janbaskdemo.com/");
 
-        // 4- Click on login Link
-        WebElement loginLink = driver.findElement(By.xpath("//a[text()='Login']"));
-        loginLink.click();
+            // 3- Click on My Account icon
+            WebElement myAccountIcon = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//i[@class='fa fa-user']")));
+            myAccountIcon.click();
 
-        // 5- Enter correct email
-        WebElement emailTextBox = driver.findElement(By.xpath("//input[@id='input-email']"));
-        emailTextBox.sendKeys("jason.roger@janbask.com");
+            // 4- Click on login Link
+            WebElement loginLink = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Login']")));
+            loginLink.click();
 
-        // 6- Enter correct password
-        WebElement passwordTextBox = driver.findElement(By.xpath("//input[@id='input-password']"));
-        passwordTextBox.sendKeys("test@1234");
+            // 5- Enter correct email
+            WebElement emailTextBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='input-email']")));
+            emailTextBox.sendKeys("jason.roger@janbask.com");
 
-        // 7- Click on Login button
-        WebElement loginButton = driver.findElement(By.xpath("//input[@type='submit']"));
-        loginButton.click();
+            // 6- Enter correct password
+            WebElement passwordTextBox = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='input-password']")));
+            passwordTextBox.sendKeys("test@1234");
 
-        // 8- Validate Login Status
-        String expectedPageTitle = "My Account";
-        String actualPageTitle = driver.getTitle();
-        if (actualPageTitle.equals(expectedPageTitle)) {
+            // 7- Click on Login button
+            WebElement loginButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='submit']")));
+            loginButton.click();
+
+            // 8- Validate Login Status
+            String expectedPageTitle = "My Account";
+            wait.until(ExpectedConditions.titleIs(expectedPageTitle));
+            String actualPageTitle = driver.getTitle();
+            Assert.assertEquals(actualPageTitle, expectedPageTitle, "Login failed: Title does not match");
             System.out.println("Login is successful..");
-        } else {
-            System.out.println("Login Failed...Please Check your Credentials...");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            Assert.fail("Test failed due to exception: " + e.getMessage());
+        } finally {
+            // 9- Close the browser
+            if (driver != null) {
+                driver.quit();
+            }
         }
-        // 9- Close the browser
-        driver.close();
-
     }
 }

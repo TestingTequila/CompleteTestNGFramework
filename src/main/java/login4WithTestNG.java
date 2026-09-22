@@ -8,8 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utilities.HandlingBrowsers;
 
-import javax.swing.text.Utilities;
-
 public class login4WithTestNG {
 
     WebDriver driver;
